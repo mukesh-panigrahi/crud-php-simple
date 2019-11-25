@@ -1,0 +1,35 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: crud-php
+  labels:
+    app: crud-php
+spec:
+  selector:
+    matchLabels:
+      app: crud-php
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: crud-php
+        tier: frontend
+    spec:
+      containers:
+      - image: gcr.io/projet-name/crud-php:v1
+        name: crud-php
+        envFrom:
+        - configMapRef:
+          name: proxysql-configmap
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "400m"
+        ports:
+        - containerPort: 80
+          name: apache

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: proxysql-configmap
+  namespace: default
+data:
+# Proxysql (6033) or mysql master DB (3306) host details if not in kubernetes
+  DB_HOST: '10.0.1.1'
+  DB_PORT: '6033'
+  DB_USERNAME: 'app'
+  DB_PASSWORD: 'app@123'
+  DB_NAME: 'test'
