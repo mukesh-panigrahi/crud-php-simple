@@ -18,11 +18,11 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: gcr.io/projet-name/crud-php:v1
+      - image: gcr.io/gcp-project-id/crud-php:v1.0
         name: crud-php
         envFrom:
         - configMapRef:
-          name: proxysql-configmap
+            name: proxysql-configmap
         resources:
           requests:
             memory: "128Mi"

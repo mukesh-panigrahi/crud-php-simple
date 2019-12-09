@@ -3,10 +3,10 @@ FROM php:7.3-apache
 
 # persistent dependencies
 RUN set -eux; \
-	apt-get update -y; \
-	apt-get install -y --no-install-recommends; \
+        apt-get update -y; \
+        apt-get install -y --no-install-recommends; \
         apt-get clean -y \
-	&& rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
+        && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 RUN docker-php-ext-install mysqli
 RUN pecl install xdebug-2.8.0
