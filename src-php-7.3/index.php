@@ -4,6 +4,9 @@ include_once("config.php");
 
 //fetching data in descending order (lastest entry first)
 $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
+
+echo "Hello World!";
+
 ?>
 
 <html>
